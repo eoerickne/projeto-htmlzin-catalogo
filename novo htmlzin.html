@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo De Sistemas</title>
+    <link rel="stylesheet" href="htmlzin.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Catálogo De Sistemas</h1>
+        <img src="brasao_vertical_sesa_cor.jpg" alt="brasao" class="logo">
+
+        <form>
+            <label for="nome">Nome do Software:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="versao">Versão:</label>
+            <input type="text" id="versao" name="versao" required>
+
+            <label for="finalidade">Finalidade:</label>
+            <input type="text" id="finalidade" name="finalidade" required>
+
+            <label for="info">Principais Informações:</label>
+            <textarea id="info" name="info" rows="4" required></textarea>
+
+            <label for="funcionalidades">Funcionalidades:</label>
+            <textarea id="funcionalidades" name="funcionalidades" rows="4" required></textarea>
+
+            <label for="acessaWeb">Acessa via Web?</label>
+            <input type="radio" id="simAcessaWeb" name="acessaWeb" value="Sim">Sim
+            <input type="radio" id="naoAcessaWeb" name="acessaWeb" value="Não">Não
+            <br>
+            <label for="informacaoSigilosa">Possui Informação Sigilosa?</label>
+            <input type="radio" id="simInfoSigilosa" name="informacaoSigilosa" value="Sim" onclick="mostrarCampoSigiloso()">Sim
+            <input type="radio" id="naoInfoSigilosa" name="informacaoSigilosa" value="Não">Não
+            <br>
+            <div id="campoInfoSigilosa">
+                <label for="qualInfoSigilosa">Qual Informação Sigilosa?</label>
+                <input type="text" id="qualInfoSigilosa" name="qualInfoSigilosa">
+            </div>
+
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+
+    <script>
+       function mostrarCampoSigiloso() {
+            const campoInfoSigilosa = document.getElementById("campoInfoSigilosa");
+            const qualInfoSigilosa = document.getElementById("qualInfoSigilosa");
+            const simInfoSigilosa = document.getElementById("simInfoSigilosa");
+
+            if (simInfoSigilosa.checked) {
+                campoInfoSigilosa.style.display = "block";
+                qualInfoSigilosa.required = true;
+            }
+        }
+
+        function ocultarCampoSigiloso() {
+            const campoInfoSigilosa = document.getElementById("campoInfoSigilosa");
+            const qualInfoSigilosa = document.getElementById("qualInfoSigilosa");
+            const naoInfoSigilosa = document.getElementById("naoInfoSigilosa");
+
+            if (naoInfoSigilosa.checked) {
+                campoInfoSigilosa.style.display = "none";
+                qualInfoSigilosa.required = false;
+                qualInfoSigilosa.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
